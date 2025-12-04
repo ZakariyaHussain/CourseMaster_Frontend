@@ -9,10 +9,11 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await api.post("/api/users/login", {
+      const res = await api.post("/api/auth/login", {
         email,
         password,
       });
+
 
       setMessage("Login successful!");
 
@@ -27,19 +28,19 @@ const Login = () => {
     <div>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
-        <input 
+        <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-        /><br/>
+        /><br />
 
-        <input 
+        <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        /><br/>
+        /><br />
 
         <button type="submit">Login</button>
       </form>
